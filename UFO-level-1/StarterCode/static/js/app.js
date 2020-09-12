@@ -9,13 +9,16 @@ var tbody = d3.select("tbody");
 tableData.forEach(function (ufoSighting) {
     // console.log(ufoSighting)
     var row = tbody.append("tr");
-    // for each item in the 
-    Object.entries(ufoSighting).forEach(function[key, value] {
+    var sighting = Object.entries(ufoSighting)
+    // console.log(sighting)
+    sighting.forEach(function ([key, value]) {
+        // for each item in the
         // Append cell for each value to the row 
         var cell = row.append("td");
-        cell.text(value)
+        cell.text(value);
     });
 });
+// });
 
 
 
