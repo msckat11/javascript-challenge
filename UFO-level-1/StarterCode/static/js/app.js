@@ -10,10 +10,9 @@ var tableData = data;
 // }
 
 
-// Put tbody into variable
+// Read in the data and create the table
+// Select the tbody and assign a variable
 var tbody = d3.select("tbody");
-
-
 // Append new row for each ufo object (creating new trs)
 tableData.forEach(function (ufoSighting) {
     // console.log(ufoSighting)
@@ -27,15 +26,12 @@ tableData.forEach(function (ufoSighting) {
         cell.text(value);
     });
 });
-// });
-
-
 
 
 // Event handler - attaching the function to the button
-// Select the button
+// Select the button in the html and assign a variable
 var button = d3.select("#filter-btn");
-// Select the form
+// Select the form in the html and assign a variable
 var form = d3.select("#datetime");
 
 // Create event handlers for clicking the button or pressing the enter key
@@ -44,28 +40,18 @@ form.on("submit", runEnter);
 
 // Create the function to run for both events
 function runEnter() {
-
     // Prevent the page from refreshing
     d3.event.preventDefault();
-
     // Select the input element and get the raw HTML node
     var inputElement = d3.select("#datetime");
-
     // Get the value property of the input element
     var inputValue = inputElement.property("value");
-
-    // Print the value to the console
+    // Make sure it grabs input date correctly
     console.log(inputValue);
-
-
-
-
-    // // Set the span tag in the h1 element to the text
-    // // that was entered in the form
-    // d3.select("h1>span").text(inputValue);
 }
 
 
+// Create a filter function for searching by date
 
 
 // // 
