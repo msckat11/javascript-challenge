@@ -1,5 +1,7 @@
 // Assign variable to data from data.js
 var tableData = data;
+// console.log(tableData);
+
 
 // // Define title case function
 // function titleCase(str) {
@@ -20,7 +22,6 @@ tableData.forEach(function (ufoSighting) {
     var sighting = Object.entries(ufoSighting)
     // console.log(sighting)
     sighting.forEach(function ([key, value]) {
-        // for each item in the
         // Append cell for each value to the row 
         var cell = row.append("td");
         cell.text(value);
@@ -48,15 +49,58 @@ function runEnter() {
     var inputValue = inputElement.property("value");
     // Make sure it grabs input date correctly
     console.log(inputValue);
-}
+    console.log(tableData);
+    // Filter by the input date
+    var filteredbyDate = tableData.filter(sighting => sighting.datetime === inputValue);
+    // Check table
+    console.log(filteredbyDate);
+};
 
 
-// Create a filter function for searching by date
+// Read in the filtered data to the table
 
-
-// // 
-// button.on("click", function () {
-//     console.log(d3.event.target);
+// // Select the tbody and assign a variable
+// var tbody = d3.select("tbody");
+// // Append new row for each ufo object (creating new trs)
+// filteredbyDate.forEach(function (ufoSighting) {
+//     // console.log(ufoSighting)
+//     var row = tbody.append("tr");
+//     var sighting = Object.entries(ufoSighting)
+//     // console.log(sighting)
+//     sighting.forEach(function ([key, value]) {
+//         // Append cell for each value to the row 
+//         var cell = row.append("td");
+//         cell.text(value);
+//     });
 // });
 
-// inputField.on("change", function () { }
+
+// // Iterate through each table row
+// tableData.forEach((sighting) => {
+
+//     // Iterate through each key and value in the row
+//     Object.entries(sighting).forEach(([key, value]) => {
+
+//       // Use the key to determine which array to push the value to
+//       if (key === "datetime") {
+//         dishes.push(value);
+//       }
+//       else {
+//         spices.push(value);
+//       }
+//      });
+//   });
+
+
+
+
+// // Create a filter function for searching by date
+// function selectDatetime(date) {
+//     return date.datetime === inputValue;
+// };
+
+// // Use custom function as filter argument
+// var filteredDate = tableData.filter(selectDatetime);
+
+// // Test if it filtered correctly
+// console.log(filteredDate);
